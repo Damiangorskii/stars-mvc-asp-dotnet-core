@@ -1,0 +1,45 @@
+﻿@model gwiazdy.Models.Star
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Star</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Name)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Name)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Constellation)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Constellation)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Magnitude)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Magnitude)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Distance)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Distance)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.SpectralType)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.SpectralType)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Mass)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Mass)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Radius)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Radius)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Luminosity)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Luminosity)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Description)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Description)</dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a> |
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>

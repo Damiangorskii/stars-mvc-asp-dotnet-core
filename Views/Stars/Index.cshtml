@@ -1,0 +1,89 @@
+﻿@model IEnumerable<gwiazdy.Models.Star>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="text-center mt-5 mb-4">
+    <h1 class="display-4">Stars Database</h1>
+    <p class="lead">Explore our collection of stars and learn more about them.</p>
+</div>
+
+<div class="mb-4">
+    <a asp-action="Create" class="btn btn-primary">Add New Star</a>
+</div>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Constellation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Magnitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Distance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpectralType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mass)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Radius)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Luminosity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Constellation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Magnitude)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Distance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SpectralType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mass)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Radius)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Luminosity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
