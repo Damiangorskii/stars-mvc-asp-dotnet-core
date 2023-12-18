@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace gwiazdy.Models
+namespace stars_database.Models
 {
-    public class Star
+    public class StarDTO
     {
         public int Id { get; set; }
 
@@ -40,6 +40,4 @@ namespace gwiazdy.Models
         [StringLength(500, ErrorMessage = "Opis gwiazdy nie może być dłuższy niż 500 znaków.")]
         public required string Description { get; set; }
     }
-
-
 }

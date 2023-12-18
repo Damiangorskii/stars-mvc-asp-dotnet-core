@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using gwiazdy.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using gwiazdy.Models;
 
 namespace stars_database.Data
 {
@@ -10,6 +10,6 @@ namespace stars_database.Data
             : base(options)
         {
         }
-        public DbSet<gwiazdy.Models.Star> Star { get; set; } = default!;
+        public DbSet<Star> Star { get; set; } = default!;
     }
 }

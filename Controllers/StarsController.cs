@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using gwiazdy.Models;
 using stars_database.Data;
 using Microsoft.AspNetCore.Authorization;
+using gwiazdy.Adapters;
+using stars_database.Models;
 
 namespace stars_database.Controllers
 {
@@ -42,8 +38,8 @@ namespace stars_database.Controllers
             {
                 return NotFound();
             }
-
-            return View(star);
+            var starDTO = StarAdapter.ConvertToDTO(star);
+            return View(starDTO);
         }
 
         // GET: Stars/Create
@@ -58,15 +54,16 @@ namespace stars_database.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Create([Bind("Id,Name,Constellation,Magnitude,Distance,SpectralType,Mass,Radius,Luminosity,Description")] Star star)
+        public async Task<IActionResult> Create([Bind("Id,Name,Constellation,Magnitude,Distance,SpectralType,Mass,Radius,Luminosity,Description")] StarDTO starDTO)
         {
             if (ModelState.IsValid)
             {
+                var star = StarAdapter.ConvertToEntity(starDTO);
                 _context.Add(star);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(star);
+            return View(starDTO);
         }
 
         // GET: Stars/Edit/5
@@ -82,7 +79,8 @@ namespace stars_database.Controllers
             {
                 return NotFound();
             }
-            return View(star);
+            var starDTO = StarAdapter.ConvertToDTO(star);
+            return View(starDTO);
         }
 
         // POST: Stars/Edit/5
@@ -91,9 +89,9 @@ namespace stars_database.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Constellation,Magnitude,Distance,SpectralType,Mass,Radius,Luminosity,Description")] Star star)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Constellation,Magnitude,Distance,SpectralType,Mass,Radius,Luminosity,Description")] StarDTO starDTO)
         {
-            if (id != star.Id)
+            if (id != starDTO.Id)
             {
                 return NotFound();
             }
@@ -102,12 +100,13 @@ namespace stars_database.Controllers
             {
                 try
                 {
+                    var star = StarAdapter.ConvertToEntity(starDTO);
                     _context.Update(star);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!StarExists(star.Id))
+                    if (!StarExists(starDTO.Id))
                     {
                         return NotFound();
                     }
@@ -118,7 +117,7 @@ namespace stars_database.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(star);
+            return View(starDTO);
         }
 
         // GET: Stars/Delete/5
@@ -135,8 +134,8 @@ namespace stars_database.Controllers
             {
                 return NotFound();
             }
-
-            return View(star);
+            var starDTO = StarAdapter.ConvertToDTO(star);
+            return View(starDTO);
         }
 
         // POST: Stars/Delete/5

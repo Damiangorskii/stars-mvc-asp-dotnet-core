@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "E45awIK6TmB2a0mNGpKkAQSCEKV7FU7ErYAE6ob1PZzaDBg9kBzS9shVzyCcROtIqxAY1oYTw2SMtFXlJs7S1A==",
+  "dgSpecHash": "v41NKLBPT2E2+rVh3DR9A0hwfmgLNM1akRdAGLOvsvSLor3uT8G8Jp8TA2sGmZWlmlDiIFCFLFsRrFYS8RXoSg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\damia\\Desktop\\Magisterka\\SEM3\\DOT NET\\Laby\\stars-database\\stars-database.csproj",
+  "projectFilePath": "C:\\Users\\damia\\Desktop\\Magisterka\\SEM3\\DOT NET\\Laby\\stars-mvc-asp-fotnet-core\\stars-database.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\damia\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\damia\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
